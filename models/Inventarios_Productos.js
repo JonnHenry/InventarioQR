@@ -5,7 +5,7 @@ module.exports = (conexion, Sequelize) => {
             primaryKey: true,
             allowNull: false,
             references: {
-                model: Inventarios,
+                model: 'Inventarios',
                 key: 'codigo',
                 as: 'cod_inventario'
             }
@@ -15,7 +15,7 @@ module.exports = (conexion, Sequelize) => {
             primaryKey: true,
             allowNull: false,
             references: {
-                model: Productos,
+                model: 'Productos',
                 key: 'codigo',
                 as: 'cod_producto'
             }
