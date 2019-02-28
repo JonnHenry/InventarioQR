@@ -1,7 +1,7 @@
-module.exports = (conexion, Sequelize) => {
-    const Productos = conexion.define('Productos', {
-        codigo : {
-            type: Sequelize.STRING,
+module.exports = async (conexion, Sequelize) => {
+    const Productos = await conexion.define('PRODUCTOS', {
+        codigoProducto : {
+            type: Sequelize.INTEGER,
             primaryKey: true,
             unique: true,
             allowNull: false,

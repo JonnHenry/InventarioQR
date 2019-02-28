@@ -1,23 +1,21 @@
-module.exports = (conexion, Sequelize) => {
-    const Inventario_Productos = conexion.define('Inventario_Productos', {
-        cod_inventario: {
+module.exports = async (conexion, Sequelize) => {
+    const Inventario_Productos = await conexion.define('INVENTARIO_PRODUCTOS', {
+        codInventario: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             allowNull: false,
             references: {
                 model: 'Inventarios',
-                key: 'codigo',
-                as: 'cod_inventario'
+                key: 'codigoInventario'
             }
         },
-        cod_producto : {
+        codProducto : {
             type: Sequelize.INTEGER,
             primaryKey: true,
             allowNull: false,
             references: {
                 model: 'Productos',
-                key: 'codigo',
-                as: 'cod_producto'
+                key: 'codigoProducto'
             }
         },
         cantidad : {

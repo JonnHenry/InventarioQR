@@ -18,13 +18,15 @@ const InventariosModel = require('./models/Inventarios');
 const Inventario_ProductosModel = require('./models/Inventarios_Productos');
 
 var Productos = ProductosModel(conexion,Sequelize);
-var Invetarios = InventariosModel(conexion,Sequelize);
+var Inventarios = InventariosModel(conexion,Sequelize);
 var Inventario_Productos = Inventario_ProductosModel(conexion,Sequelize);
+
+
 
 conexion.sync({force: true }).then(()=>{
     console.log('Tablas Creadas exitosamente!')
 });
 
 module.exports.Productos = Productos;
-module.exports.Inventarios = Invetarios;
+module.exports.Inventarios = Inventarios;
 module.exports.Inventario_Productos = Inventario_Productos; 
