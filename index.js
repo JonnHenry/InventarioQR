@@ -15,7 +15,10 @@ const Inventarios = modulo.Inventarios;
 const Inventarios_Productos = modulo.Inventario_Productos;
 
 app.get('/', (req, res) => {
-  res.send('La aplicación fue desplegada exitosamente. Esta es una prueba de commits.');
+  res.json({
+    respuesta: 'Esta es una respuesta exitosa.',
+    result: 'Esta vale de una manera increible'
+  })
 })
 
 
