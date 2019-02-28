@@ -14,6 +14,10 @@ const Productos = modulo.Productos;
 const Inventarios = modulo.Inventarios;
 const Inventarios_Productos = modulo.Inventario_Productos;
 
+app.get('/', (req, res) => {
+  res.send('La aplicación fue desplegada exitosamente.');
+})
+
 
 app.listen(port, () => {
     console.log('Escuchando en el puerto' + port)
