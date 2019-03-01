@@ -16,12 +16,14 @@ var conexion = new Sequelize('InventarioQR', 'jonnathan@inventarioqr', 'Jhca1996
     }
 });
 
-var Productos = ProductosModel(conexion,Sequelize);
-var Inventarios = InventariosModel(conexion,Sequelize);
-var InventarioProductos = InventarioProductosModel(conexion,Sequelize);
+var Productos = ProductosModel(conexion, Sequelize);
+var Inventarios = InventariosModel(conexion, Sequelize);
+var InventarioProductos = InventarioProductosModel(conexion, Sequelize);
 
 
-conexion.sync({force: true}).then(()=>{
+conexion.sync({
+    force: true
+}).then(() => {
     console.log('Tablas Creadas exitosamente!')
 });
 
