@@ -21,7 +21,7 @@ var Inventarios = InventariosModel(conexion,Sequelize);
 var InventarioProductos = InventarioProductosModel(conexion,Sequelize);
 
 
-conexion.sync().then(()=>{
+conexion.sync({force: true}).then(()=>{
     console.log('Tablas Creadas exitosamente!')
 });
 
