@@ -18,7 +18,7 @@ app.post('/producto', (req, res) => { // Se debe de recibir el codigo y la descr
   Productos.findOrCreate({
       where: {
         codigoProducto: req.body.codigoProducto,
-      },defaults: {
+      }, defaults: {
         descripcion: req.body.descripcion
       }
     })
