@@ -15,6 +15,7 @@ const Inventarios = modulo.Inventarios;
 const Inventarios_Productos = modulo.Inventario_Productos;
 
 app.post('/producto', (req, res) => { // Se debe de recibir el codigo y la descripción del producto en **req**
+  console.log(req.body)
   Productos.findOrCreate({
       where: {
         codigoProducto: req.body.codigoProducto,
@@ -38,8 +39,12 @@ app.post('/producto', (req, res) => { // Se debe de recibir el codigo y la descr
         respuesta: '500 Error interno del servidor'
       })
     })
+});
 
-})
+
+app.get('/',(req,res) => {
+  res.json({respuesta: 'Este es un valor de respuesta'});
+});
 
 
 app.listen(port, () => {
