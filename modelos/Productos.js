@@ -1,4 +1,4 @@
-module.exports = (conexion,Sequelize) =>{
+module.exports = (conexion, Sequelize) => {
     const Productos = conexion.define('Productos', {
         codigoProducto: {
             primaryKey: true,
@@ -14,6 +14,8 @@ module.exports = (conexion,Sequelize) =>{
             type: Sequelize.STRING,
             defaultValue: "Ninguna"
         }
-      });
+    }, {
+        timestamps: true
+    });
     return Productos;
 }

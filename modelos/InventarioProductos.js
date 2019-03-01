@@ -24,7 +24,7 @@ module.exports = (conexion, Sequelize) => {
         }
     },
     {
-        timestamps: false
+        timestamps: true
     })
     return Inventario_Productos;
 }

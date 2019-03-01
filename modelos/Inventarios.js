@@ -1,7 +1,7 @@
 module.exports = (conexion, Sequelize) => {
-    const Inventarios = conexion.define('Inventarios',{
+    const Inventarios = conexion.define('Inventarios', {
         codigoInventario: {
-            type : Sequelize.INTEGER, 
+            type: Sequelize.INTEGER,
             primaryKey: true,
             allowNull: false,
             autoIncrement: true,
@@ -9,8 +9,11 @@ module.exports = (conexion, Sequelize) => {
             onDelete: 'cascade'
         },
         observacion: {
-            type : Sequelize.STRING 
-        }   
+            type: Sequelize.STRING
+        }
+    }, {
+        timestamps: true
     });
+
     return Inventarios;
 }
