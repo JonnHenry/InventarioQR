@@ -1,5 +1,5 @@
 module.exports = async (conexion, Sequelize) => {
-    const Productos = await conexion.define('PRODUCTOS', {
+    const Productos = await conexion.define('Productos', {
         codigoProducto : {
             type: Sequelize.INTEGER,
             primaryKey: true,
@@ -7,7 +7,7 @@ module.exports = async (conexion, Sequelize) => {
             allowNull: false,
             onUpdate: 'CASCADE'
         },
-        descripcion : {
+        descripcion: {
             type: Sequelize.STRING,
             allowNull: false
         }

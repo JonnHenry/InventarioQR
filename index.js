@@ -14,7 +14,7 @@ const Productos = modulo.Productos;
 const Inventarios = modulo.Inventarios;
 const Inventarios_Productos = modulo.Inventario_Productos;
 
-app.post('/producto', (req, res) => { // Se debe de recibir el codigo y la descripción del producto en **req**
+app.post('/producto/nuevo', (req, res) => { // Se debe de recibir el codigo y la descripción del producto en **req**
   console.log(req.body)
   Productos.findOrCreate({
       where: {

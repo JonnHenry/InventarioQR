@@ -1,5 +1,5 @@
 module.exports = async (conexion, Sequelize) => {
-    const Inventarios = await conexion.define('INVENTARIOS',{
+    const Inventarios = await conexion.define('Inventarios',{
         codigoInventario: {
             type : Sequelize.INTEGER, 
             primaryKey: true,
@@ -8,7 +8,7 @@ module.exports = async (conexion, Sequelize) => {
             allowNull: false,
             onUpdate: 'CASCADE'
         },
-        observacion : {
+        observacion: {
             type : Sequelize.STRING 
         }   
     });
