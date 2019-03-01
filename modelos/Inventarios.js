@@ -1,12 +1,12 @@
-module.exports = async (conexion, Sequelize) => {
-    const Inventarios = await conexion.define('Inventarios',{
+module.exports = (conexion, Sequelize) => {
+    const Inventarios = conexion.define('Inventarios',{
         codigoInventario: {
             type : Sequelize.INTEGER, 
             primaryKey: true,
-            unique: true,
-            autoIncrement: true,
             allowNull: false,
-            onUpdate: 'CASCADE'
+            autoIncrement: true,
+            onUpdate: 'cascade',
+            onDelete: 'cascade'
         },
         observacion: {
             type : Sequelize.STRING 

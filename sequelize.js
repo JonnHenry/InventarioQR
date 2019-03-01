@@ -1,8 +1,7 @@
 var Sequelize = require('sequelize');
-// Importación de los modelos
-const ProductosModel = require('./models/Productos');
-const InventariosModel = require('./models/Inventarios'); 
-const Inventario_ProductosModel = require('./models/Inventarios_Productos');
+const ProductosModel = require('./modelos/Productos');
+const InventariosModel = require('./modelos/Inventarios');
+const InventarioProductosModel = require('./modelos/InventarioProductos');
 
 var conexion = new Sequelize('InventarioQR', 'jonnathan@inventarioqr', 'Jhca19960121', { // Conexión a la base de datos
     host: 'inventarioqr.database.windows.net',
@@ -19,7 +18,8 @@ var conexion = new Sequelize('InventarioQR', 'jonnathan@inventarioqr', 'Jhca1996
 
 var Productos = ProductosModel(conexion,Sequelize);
 var Inventarios = InventariosModel(conexion,Sequelize);
-var Inventario_Productos = Inventario_ProductosModel(conexion,Sequelize);
+var InventarioProductos = InventarioProductosModel(conexion,Sequelize);
+
 
 conexion.sync().then(()=>{
     console.log('Tablas Creadas exitosamente!')
@@ -27,4 +27,4 @@ conexion.sync().then(()=>{
 
 module.exports.Productos = Productos;
 module.exports.Inventarios = Inventarios;
-module.exports.Inventario_Productos = Inventario_Productos; 
+module.exports.InventarioProductos = InventarioProductos;
