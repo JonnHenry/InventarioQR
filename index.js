@@ -18,6 +18,8 @@ app.post('/producto', (req, res) => { // Se debe de recibir el codigo y la descr
   Productos.findOrCreate({
       where: {
         codigoProducto: req.body.codigoProducto,
+      },defaults: {
+        descripcion: req.body.descripcion
       }
     })
     .spread((result, created) => { // Si este fue encontrado retorna un booleano con verdadero si el objeto fue creado
