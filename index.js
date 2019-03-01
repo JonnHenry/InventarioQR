@@ -35,7 +35,7 @@ app.post('/producto', (req, res) => { // Se debe de recibir el codigo y la descr
     })
     .catch((errores) => {
       res.json({
-        respuesta: '500 Internal Server Error'
+        respuesta: '500 Error interno del servidor'
       })
     })
 
