@@ -115,7 +115,7 @@ app.post('/producto/nuevo', (req, res) => { // Crear un producto
     }
   }).catch(err => {
     res.json({
-      respuesta: '500 Error interno del servidor, vuelva a intentarlo'
+      respuesta: '500 Error interno del servidor, vuelva a intentarlo' + err
     })
   })
 });
