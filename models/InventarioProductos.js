@@ -22,8 +22,7 @@ module.exports = (conexion, Sequelize) => {
             type: Sequelize.INTEGER,
             allowNull: false
         }
-    },
-    {
+    }, {
         timestamps: true
     })
     return Inventario_Productos;
