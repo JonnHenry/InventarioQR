@@ -292,6 +292,10 @@ app.delete('/invetarioproducto/delete/:id', (req, res) => { // los datos del par
     })
 });
 
+app.get("/",(req,res)=>{
+  res.send("<h1>Servidor funcionando correctamente</h1>");
+})
+
 ///////////////////////////////////////////Fin metodos para InventarioProductos ////////////////////////////////////////////////
 app.listen(port, () => {
   console.log('Escuchando en el puerto' + port)
