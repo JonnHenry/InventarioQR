@@ -29,7 +29,7 @@ app.post('/producto', (req, res) => { // Se debe de recibir el codigo y la descr
         })
       } else {
         res.json({
-          respuesta: 'El producto con el codigo ' + result.codigoProducto + ' ya se encuentra registrado, su descripcion es ' + result.descripcion
+          respuesta: 'El producto con el codigo: ' + result.codigoProducto + ' se encuentra registrado, su descripcion es: ' + result.descripcion
         })
       }
     })
