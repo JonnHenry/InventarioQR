@@ -14,14 +14,32 @@ const Productos = modulo.Productos;
 const Inventarios = modulo.Inventarios;
 const Inventarios_Productos = modulo.Inventario_Productos;
 
-app.get('/', (req, res) => {
-  res.json({
-    respuesta: 'Esta es una respuesta exitosa.',
-    result: 'Esta vale de una manera increible'
-  })
+app.post('/producto', (req, res) => { // Se debe de recibir el codigo y la descripción del producto en **req**
+  Productos.findOrCreate({
+      where: {
+        codigoProducto: req.body.codigoProducto,
+      }
+    })
+    .spread((result, created) => { // Si este fue encontrado retorna un booleano con verdadero si el objeto fue creado
+      if (created) {
+        res.json({
+          respuesta: 'Producto creado'
+        })
+      } else {
+        res.json({
+          respuesta: 'El producto con el codigo ' + result.codigoProducto + ' ya se encuentra registrado, su descripcion es ' + result.descripcion
+        })
+      }
+    })
+    .catch((errores) => {
+      res.json({
+        respuesta: '500 Internal Server Error'
+      })
+    })
+
 })
 
 
 app.listen(port, () => {
-    console.log('Escuchando en el puerto' + port)
+  console.log('Escuchando en el puerto' + port)
 })
