@@ -8,6 +8,9 @@ module.exports = (conexion, Sequelize) => {
             onUpdate: 'cascade',
             onDelete: 'cascade'
         },
+        nombre: {
+            type: Sequelize.STRING
+        },
         observacion: {
             type: Sequelize.STRING
         }
