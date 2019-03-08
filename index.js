@@ -231,7 +231,7 @@ app.post('/invetarioproducto/nuevo', (req, res) => { //Agregar un producto a un 
     defaults: {
       cantidad: req.body.cantidad
     }
-  }).spread((result, created) => { // Si este fue encontrado retorna un booleano con verdadero si el objeto fue creado
+  }).spread((result, created) => { // Si este fue encontrado retorna un booleano con verdadero si el objeto es creado
     if (created) {
       res.json({
         respuesta: 'Articulo agregado en el inventario correctamente'
