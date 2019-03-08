@@ -139,7 +139,7 @@ app.get('/productos', (req, res) => { // Para poder obtener todos los servicios 
     })
 });
 
-app.get('/producto/busca/:id', (req, res) => { // Para poder obtener todos los inventarios y el numero de inventarios
+app.get('/producto/busca/:id', (req, res) => { // Para poder obtener un producto con el codigo enviado por parametro id
   var idProducto = req.params.id;
   Productos.findOne({
       where: {
