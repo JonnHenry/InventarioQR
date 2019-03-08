@@ -16,8 +16,9 @@ const InventarioProductos = modulo.InventarioProductos;
 
 /*////////////////////////////////////Metodos para el inventario//////////////////////////////////*/
 
-app.post('/inventario/nuevo', (req, res) => { // Para poder crear un servicio
+app.post('/inventario/nuevo', (req, res) => { // Para poder crear un inventario
   Inventarios.create({
+      nombre: req.body.nombre,
       observacion: req.body.observacion,
     })
     .then(inventario => {
