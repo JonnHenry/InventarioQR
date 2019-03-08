@@ -57,7 +57,7 @@ app.get('/inventarios', (req, res) => { // Para poder obtener todos los inventar
     })
 });
 
-app.get('/inventario/:id', (req, res) => { // Para poder obtener todos los inventarios y el numero de inventarios
+app.get('/inventario/busca/:id', (req, res) => { // Para poder obtener todos los inventarios y el numero de inventarios
   var idInventario = req.params.id;
   Inventarios.findOne({
       where: {
