@@ -17,21 +17,28 @@ const InventarioProductos = modulo.InventarioProductos;
 /*////////////////////////////////////Metodos para el inventario//////////////////////////////////*/
 
 app.post('/inventario/nuevo', (req, res) => { // Para poder crear un inventario
-  Inventarios.create({
+  Inventarios.findOrCreate({
+    where: {
       nombre: req.body.nombre,
+    },
+    defaults: {
       observacion: req.body.observacion,
-    })
-    .then(inventario => {
+    }
+  }).spread((result, created) => { // Si este fue encontrado retorna un booleano con verdadero si el objeto fue creado
+    if (created) {
       res.json({
-        respuesta: 'El inventario tiene el codigo:' + inventario.codigoInventario +
-          '\n'
+        respuesta: 'El inventario tiene el codigo:' + result.codigoInventario
       })
-    })
-    .catch(function (err) {
+    } else {
       res.json({
-        respuesta: 'No se pudo crear el inventario, vuelva a intentarlo'
-      });
+        respuesta: 'El inventario ya fue creado anteriormente con el mismo nombre.'
+      })
+    }
+  }).catch(err => {
+    res.json({
+      respuesta: 'Error, vuelva a intentarlo ' + err
     })
+  })
 });
 
 app.get('/inventarios', (req, res) => { // Para poder obtener todos los inventarios y el numero de inventarios
@@ -116,7 +123,7 @@ app.post('/producto/nuevo', (req, res) => { // Crear un producto
     }
   }).catch(err => {
     res.json({
-      respuesta: '500 Error interno del servidor, vuelva a intentarlo' + err
+      respuesta: 'Error, vuelva a intentarlo' + err
     })
   })
 });
@@ -293,7 +300,7 @@ app.delete('/invetarioproducto/delete/:id', (req, res) => { // los datos del par
     })
 });
 
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
   res.send("<h1>Servidor funcionando correctamente</h1>");
 })
 
