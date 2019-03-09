@@ -79,7 +79,7 @@ app.get('/inventario/busca/:id', (req, res) => { // Para poder obtener todos los
 });
 
 app.delete('/inventario/delete/:idInventario', (req, res) => { //Borrar un inventario
-  let inventarioId = req.params.id
+  let inventarioId = req.params.idInventario
   Inventarios.destroy({
       where: {
         codigoInventario: inventarioId
