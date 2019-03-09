@@ -189,13 +189,13 @@ app.put('/producto/actualiza/:idProducto', (req, res) => {
         .then(() => {
           res.json({
             'respuesta': 'Los datos se han actualizado con exito',
-            'actualCorrecta': true
+            'actCorrecta': true
           })
         });
     }).catch(() => {
       res.json({
-        'respuesta': 'Los datos no se han actualizado con exito',
-        'actualCorrecta': false
+        'respuesta': 'Los datos no se han actualizado',
+        'actCorrecta': false
       })
     })
 });
