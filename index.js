@@ -201,7 +201,7 @@ app.put('/producto/actualiza/:idProducto', (req, res) => {
 });
 
 app.delete('/producto/delete/:idInventario', (req, res) => {
-  let inventarioId = req.params.id
+  let inventarioId = req.params.idInventario
   Inventarios.destroy({
       where: {
         codigoInventario: inventarioId
