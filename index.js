@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(cors());
-var port = 3030;
+var port = 8080;
 
 const Productos = modulo.Productos;
 const Inventarios = modulo.Inventarios;
