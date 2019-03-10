@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(cors());
-var port = 8080;
+var port = 3030;
 
 const Productos = modulo.Productos;
 const Inventarios = modulo.Inventarios;
@@ -109,7 +109,7 @@ app.post('/producto/nuevo', (req, res) => { // Crear un producto
     },
     defaults: {
       nombre: req.body.nombre,
-      descripcion: req.body.descripcion
+      observacion: req.body.observacion
     }
   }).spread((result, created) => { // Si este fue encontrado retorna un booleano con verdadero si el objeto fue creado
     if (created) {

@@ -10,7 +10,7 @@ module.exports = (conexion, Sequelize) => {
             allowNull: false
 
         },
-        descripcion: {
+        observacion: {
             type: Sequelize.STRING,
             defaultValue: "Ninguna"
         }
