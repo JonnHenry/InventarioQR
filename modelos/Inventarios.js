@@ -14,7 +14,7 @@ module.exports = (conexion, Sequelize) => {
         },
         observacion: {
             type: Sequelize.STRING,
-            defaultValue: 'Ninguna'
+            defaultValue: 'Ninguno'
         }
     }, {
         timestamps: true
