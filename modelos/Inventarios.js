@@ -9,10 +9,12 @@ module.exports = (conexion, Sequelize) => {
             onDelete: 'cascade'
         },
         nombre: {
-            type: Sequelize.STRING
+            type: Sequelize.STRING,
+            allowNull: false,
         },
         observacion: {
-            type: Sequelize.STRING
+            type: Sequelize.STRING,
+            defaultValue: 'Ninguna'
         }
     }, {
         timestamps: true
