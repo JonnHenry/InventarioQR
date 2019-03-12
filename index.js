@@ -323,7 +323,7 @@ app.delete('/invetarioproducto/delete/:id', (req, res) => { // los datos del par
     })
     .catch((error) => {
       res.json({
-        'eliminado': error
+        'eliminado': false
       })
     })
 });
