@@ -118,7 +118,7 @@ app.post('/producto/nuevo', (req, res) => { // Crear un producto
       })
     } else {
       res.json({
-        respuesta: 'El producto con el codigo: ' + result.codigoProducto + ' se encuentra registrado' + "\nSu descripcion es: " + result.descripcion
+        respuesta: 'El producto con el codigo: ' + result.codigoProducto + ' se encuentra registrado' + "\nSu nombre es: " + result.nombre
       })
     }
   }).catch(err => {
