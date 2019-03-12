@@ -256,6 +256,10 @@ app.post('/invetarioproducto/nuevo', (req, res) => { //Agregar un producto a un 
 });
 
 app.get('/invetarioproducto/busca/:id', (req, res) => { // Para poder obtener todos los servicios y el numero de resultados
+  var data = [];
+  var usuarios = [];
+  var datos = [];
+  var paso = 0;
   var codInventario = req.params.id
   InventarioProductos.findAndCountAll({
       where: {
@@ -263,11 +267,35 @@ app.get('/invetarioproducto/busca/:id', (req, res) => { // Para poder obtener to
       }
     })
     .then(result => {
-      res.json({
-        'cantidadProductos': result.count,
-        'data': result.rows,
-        'errorBuscar': false
-      })
+      for (paso = 0; paso < result.count; paso++) {
+        usuarios.push(result.rows[paso].codProducto);
+        datos.push({
+          'cantidad': result.rows[paso].cantidad,
+          'createdAt': result.rows[paso].createdAt,
+          'updatedAt': result.rows[paso].updatedAt
+        });
+      };
+      Productos.findAll({
+          where: {
+            codigoProducto: usuarios
+          },
+          attributes: {
+            exclude: ['createdAt', 'updatedAt']
+          }
+        })
+        .then(productos => {
+          for (paso = 0; paso < result.count; paso++) {
+            data.push({
+              'producto': productos[paso],
+              'datosInventario': datos[paso]
+            });
+          }
+          res.json({
+            'cantidadProductos': result.count,
+            'data': data,
+            'errorBuscar': false
+          });
+        })
     })
     .catch((err) => {
       res.json({
