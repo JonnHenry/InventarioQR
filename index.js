@@ -27,7 +27,7 @@ app.post('/inventario/nuevo', (req, res) => { // Para poder crear un inventario
   }).spread((result, created) => { // Si este fue encontrado retorna un booleano con verdadero si el objeto fue creado
     if (created) {
       res.json({
-        respuesta: 'El fue agregado con exito'
+        respuesta: 'El inventario fue agregado con exito'
       })
     } else {
       res.json({
