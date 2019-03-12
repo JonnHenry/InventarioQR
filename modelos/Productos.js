@@ -4,11 +4,12 @@ module.exports = (conexion, Sequelize) => {
             primaryKey: true,
             allowNull: false,
             type: Sequelize.INTEGER,
+            onUpdate: 'CASCADE',
         },
         nombre: {
             type: Sequelize.STRING,
-            allowNull: false
-
+            allowNull: false,
+            onUpdate: 'CASCADE'
         },
         observacion: {
             type: Sequelize.STRING,

@@ -5,12 +5,14 @@ module.exports = (conexion, Sequelize) => {
             primaryKey: true,
             allowNull: false,
             autoIncrement: true,
-            onUpdate: 'cascade',
-            onDelete: 'cascade'
+            onUpdate: 'CASCADE',
+            onDelete: 'CASCADE'
         },
         nombre: {
             type: Sequelize.STRING,
             allowNull: false,
+            onUpdate: 'CASCADE',
+            onDelete: 'CASCADE'
         },
         observacion: {
             type: Sequelize.STRING,

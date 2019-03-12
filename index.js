@@ -234,7 +234,8 @@ app.post('/invetarioproducto/nuevo', (req, res) => { //Agregar un producto a un 
   }).spread((result, created) => { // Si este fue encontrado retorna un booleano con verdadero si el objeto es creado
     if (created) {
       res.json({
-        respuesta: 'Articulo agregado en el inventario correctamente'
+        respuesta: 'Articulo agregado en el inventario correctamente',
+        agregado: true
       })
     } else {
       var cantidadActual = result.cantidad + req.body.cantidad;
@@ -244,13 +245,15 @@ app.post('/invetarioproducto/nuevo', (req, res) => { //Agregar un producto a un 
         cantidad: cantidadActual
       }).then(() => {
         res.json({
-          respuesta: 'El producto:' + req.body.codProducto + '\n en el inventario: ' + req.body.codInventario + ' ha sido actualizado correctamente.'
+          respuesta: 'El producto:' + req.body.codProducto + '\n en el inventario: ' + req.body.codInventario + ' ha sido actualizado correctamente.',
+          agregado: true
         });
       })
     }
   }).catch(() => {
     res.json({
-      respuesta: 'Error, vuelva a intentarlo y verifique los datos'
+      respuesta: 'Error, vuelva a intentarlo y verifique los datos',
+      agregado: false
     });
   })
 });
