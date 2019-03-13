@@ -245,7 +245,7 @@ app.post('/invetarioproducto/nuevo', (req, res) => { //Agregar un producto a un 
         cantidad: cantidadActual
       }).then(() => {
         res.json({
-          respuesta: 'El producto:' + req.body.codProducto + '\n en el inventario: ' + req.body.codInventario + ' ha sido actualizado correctamente.',
+          respuesta: 'El producto:' + req.body.codProducto + ' ha sido actualizado correctamente.',
           agregado: true
         });
       })
