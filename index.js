@@ -36,7 +36,7 @@ app.post('/inventario/nuevo', (req, res) => { // Para poder crear un inventario
     }
   }).catch(err => {
     res.json({
-      respuesta: 'Error, vuelva a intentarlo ' + err
+      respuesta: 'Error, vuelva a intentarlo. '
     })
   })
 });
@@ -89,9 +89,9 @@ app.delete('/inventario/delete/:idInventario', (req, res) => { //Borrar un inven
         'eliminado': true
       })
     })
-    .catch(error => {
+    .catch(() => {
       res.json({
-        'eliminado': false
+        'eliminado': false 
       })
     })
 })

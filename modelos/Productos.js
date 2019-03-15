@@ -5,11 +5,13 @@ module.exports = (conexion, Sequelize) => {
             allowNull: false,
             type: Sequelize.INTEGER,
             onUpdate: 'CASCADE',
+            onDelete: 'CASCADE'
         },
         nombre: {
             type: Sequelize.STRING,
             allowNull: false,
-            onUpdate: 'CASCADE'
+            onUpdate: 'CASCADE',
+            onDelete: 'CASCADE'
         },
         observacion: {
             type: Sequelize.STRING,
